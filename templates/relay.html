@@ -1,0 +1,32 @@
+$def with (status, bitlist, msg)
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Relay manager</title>
+</head>
+
+
+<body>
+  <h1>Relay Dealer</h1>
+  
+  <fieldset>
+  $for b in bitlist:
+    $if b == 1:
+      <input type="button" onclick="window.location.href='/$loop.index0'" value='Relay $loop.index0' style="background: #0a0;"/>
+    $else:
+      <input type="button" onclick="window.location.href='/$loop.index0'" value='Relay $loop.index0' style="background: #a00;"/>
+  </fieldset>
+  
+  <section>
+    <h2>Status</h2>
+    <dl>
+      <dt>Relay value</dt>
+      <dd>$status</dd>
+      <dt>Message</dt>
+      <dd>$msg</dd>
+    </dl>
+  </section>
+</body>
+</html>

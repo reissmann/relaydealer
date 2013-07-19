@@ -1,0 +1,37 @@
+=== Relay Dealer ===
+Visualize the status of and/or flip some relay.
+
+
+=== How to use ===
+1) You can run this app with its internal webserver using python-cli:
+
+  > python __main__.py 
+
+After the webserver is running, the app is served at 127.0.0.1:8080.
+Do not use in production and certainly not for public access!
+
+
+2) You can serve the app using wsgi (i.e. with apache webserver):
+
+Example apache configuration:
+
+  LoadModule wsgi_module modules/mod_wsgi.so
+
+  <VirtualHost *:8080>
+    WSGIScriptAlias / /var/www/relaydealer/__main__.py/
+    AddType text/html .py
+  
+    <Directory /var/www/relaydealer/>
+        Order deny,allow
+        Allow from all
+    </Directory>
+  </VirtualHost>
+
+
+=== Configuration ===
+Before you can use this software you have to change the DEVICE variable in
+the __main__.py script, to match your setup.
+ 
+
+=== License ===
+This software is distributed under the terms of the ISC license.
